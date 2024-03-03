@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Order Details";
+    var productCount = (int)ViewBag.ProductCount;
+}
+
+<h2>Order Details</h2>
+
+<form asp-action="OrderForm" method="post">
+    @for (int i = 0; i < productCount; i++)
+    {
+      <div class="form-group">
+        <label for="Products_[@i].Name">Pizza Name:</label>
+        <input name="Products[@i].Name" class="form-control" />
+        <label for="Products_[@i].Price">Price:</label>
+        <input name="Products[@i].Price" type="number" class="form-control" />
+      </div>
+    }
+    <button type="submit" class="btn btn-primary">Submit Order</button>
+</form>

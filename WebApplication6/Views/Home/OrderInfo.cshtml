@@ -1,0 +1,24 @@
+@model WebApplication6.Models.OrderDetails
+
+@{
+    ViewData["Title"] = "Order Information";
+}
+
+<h2>Order Information</h2>
+
+@if (Model.Products != null && Model.Products.Any())
+{
+    <ul>
+        @foreach (var product in Model.Products)
+        {
+            <li>
+                <p>Pizza Name: @product.Name</p>
+                <p>Price: @product.Price</p>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No products ordered.</p>
+}
